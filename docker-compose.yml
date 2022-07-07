@@ -1,0 +1,23 @@
+version: "3"
+services:
+  sample_graphql_api:
+    container_name: sample_graphql_api
+    platform: linux/x86_64
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    tty: true
+    working_dir: /api
+    volumes:
+      - ./api:/api
+    environment:
+      API_DOMAIN: "localhost:8000"
+    ports:
+      - "8000:3000"
+    command: /bin/sh -c "rm -f /api/tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    networks:
+      - sample-graphql-network
+
+networks:
+  sample-graphql-network:
+    driver: bridge
