@@ -13,5 +13,8 @@ module Types
     def test_field
       "Hello World!"
     end
+
+    field :books, resolver: Queries::Books
+    field :book, resolver: Queries::Book
   end
 end
