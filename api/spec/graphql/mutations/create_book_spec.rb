@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Mutations::CreateBook do
   describe 'CreateBook' do
-    it 'loads samples' do
+    it '正常系' do
       query_string = <<-GRAPHQL
 mutation {
   createBook(input: {params: {title: "New Book"}}) {
@@ -14,7 +14,6 @@ mutation {
 }
       GRAPHQL
       result = ApiSchema.execute(query_string, context: {}, variables: {} )
-      puts result.inspect
       expect(result['data']['createBook']['book']['title']).to eq('New Book')
     end
   end
