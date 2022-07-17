@@ -4,6 +4,7 @@
 
 ## Usage
 
+### APIの起動
 1. Docker Desktopを起動し、dockerを起動する
 
 2. Railsで実行するためにパッケージを取得し、Dockerイメージの作成をする
@@ -26,6 +27,29 @@
 
   `https://localhost:8000` 
 
+
+### Webの起動
+
+1. ディレクトリの移動
+
+  ```
+  $ cd web
+  ```
+
+
+2. パッケージの依存関係の取得
+  ```
+  $ yarn
+  ```
+
+3. 起動
+  ```
+  $ yarn start
+  ```
+
+4. 以下のURLにアクセスする
+
+  `https://localhost:3000` 
 
 ## Development
 
