@@ -1,3 +1,5 @@
+[![Rspec](https://github.com/keychi25/sample-graphql/actions/workflows/rspec.yml/badge.svg)](https://github.com/keychi25/sample-graphql/actions/workflows/rspec.yml)
+
 # sample-graphql
 
 ## Usage

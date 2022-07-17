@@ -1,0 +1,26 @@
+name: Rspec
+
+on:
+  push:
+    paths:
+      - "api/**"
+      - ".github/workflows/rspec.yml"
+
+jobs:
+  run_spec:
+    name: Run test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Test
+        env:
+          DOCKER_BUILDKIT: 1
+        run: |
+          docker build -t sample_graphql_api:latest --cache-from=sample_graphql_api:latest \
+          --build-arg BUILDKIT_INLINE_CACHE=1 \
+          -f docker/Dockerfile .
+          docker build -t sample_graphql_api:latest --cache-from=sample_graphql_api:latest \
+          --build-arg BUILDKIT_INLINE_CACHE=1 \
+          -f docker/Dockerfile .
+          docker container run --rm sample_graphql_api bundle exec rails db:migrate:reset
+          docker container run --rm sample_graphql_api bundle exec rspec
