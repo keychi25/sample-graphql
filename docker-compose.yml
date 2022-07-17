@@ -4,7 +4,7 @@ services:
     container_name: sample_graphql_api
     build:
       context: .
-      dockerfile: ./docker/Dockerfile
+      dockerfile: ./docker/Dockerfile.api
     tty: true
     working_dir: /api
     volumes:
