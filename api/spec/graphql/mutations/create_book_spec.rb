@@ -5,7 +5,7 @@ RSpec.describe Mutations::CreateBook do
     it '正常系' do
       query_string = <<-GRAPHQL
 mutation {
-  createBook(input: {params: {title: "New Book"}}) {
+  createBook(input: { params: {title: "New Book"}}) {
     book {
       id
       title
