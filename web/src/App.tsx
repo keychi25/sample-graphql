@@ -1,6 +1,5 @@
 import { useBooksQuery } from "./graphql/generated";
 
-
 function App() {
   const { data: { books = [] } = {} } = useBooksQuery();
 
